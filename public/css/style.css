@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: transparent linear-gradient(180deg, #000000 0%, #8D8D00 100%) 0% 0% no-repeat padding-box;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo{
+    width: 50%;
+    text-align: center;
+}
+
+.login-container{
+    width: 50%;
+}
+
+form.mainpage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
+    height: 50vh;
+
+    background: #00000059 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 6px #00000029;
+    border: 1px solid #707070;
+    border-radius: 11px;
+}
+
+.form-btn {
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    justify-content: center;
+}
+
+.mainpage button {
+    background: #00000066 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 7px;
+
+    width: 30%;
+    border: none;
+    color: white;
+    margin: 0.5em;
+    line-height: 2.5em;
+}
+
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 0.5em;
+    margin: 1em;
+    width: 50%;
+}
+
+@media only screen and (max-device-width: 420px){
+    .container {
+        flex-direction: column;
+    }
+
+    * {
+        font-size: 36px;
+    }
+
+    .login-container, .logo {
+        width: 100%;
+    }
+
+    form{
+        margin: auto;
+    }
+}
+
+.base-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    background: transparent linear-gradient(180deg, #000000 0%, #8D8D00 100%) 0% 0% no-repeat padding-box;
+}
+
+nav {
+    width: 6vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;  
+    align-items: center;
+    background: transparent linear-gradient(180deg, #000000 0%, #5f5f00 100%) 0% 0% no-repeat padding-box;
+}
+
+nav a {
+    text-align: center;
+}
+
+nav .profile-img {
+    width: 50%;
+    padding-top: 15px;
+    cursor: pointer;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.btn {
+    background-color: transparent;
+    border: none;
+    color:white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.btn:hover{
+    color: #777777;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main > header {
+    align-self: stretch;
+}
+
+.logo-homepage {
+    margin-left: auto;
+    text-align: right;
+}
+
+.logo-homepage > img {
+    width: 10em;
+    margin: 2em 2em;
+}
+
