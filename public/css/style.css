@@ -22,7 +22,7 @@ body {
     width: 50%;
 }
 
-form.mainpage {
+form.login-content {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,7 +43,7 @@ form.mainpage {
     justify-content: center;
 }
 
-.mainpage button {
+.login-content button {
     background: #00000066 0% 0% no-repeat padding-box;
     border: 1px solid #707070;
     border-radius: 7px;
@@ -91,7 +91,7 @@ input {
 }
 
 nav {
-    width: 6vw;
+    width: 5em;
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -105,8 +105,9 @@ nav a {
 }
 
 nav .profile-img {
-    width: 50%;
-    padding-top: 15px;
+    width: 4em;
+    margin: 10px;
+    padding-top: 20px;
     cursor: pointer;
 }
 
@@ -120,8 +121,9 @@ ul {
     background-color: transparent;
     border: none;
     color:white;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
+    padding-top: 30px;
 }
 
 .btn:hover{
@@ -149,3 +151,37 @@ main > header {
     margin: 2em 2em;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.content a {
+    color: whitesmoke;
+    font-size: 30px;
+    text-decoration: underline darkgray;
+    font-style: italic;
+    font-family: fantasy;
+    margin: 15px;
+}
+
+.book-section {
+    display: flex;
+    flex-direction: row;
+    margin: 15px;
+
+}
+
+.book {
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.book > img {
+    width: 180px;
+    height: 275px;
+    box-shadow: 3px 2px 2px 1px black;
+    margin-right: 15px;
+    margin
+}
