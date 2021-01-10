@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <title>LOGIN PAGE</title>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <img src="../img/logo.svg">
+            <img src="public/img/logo.svg">
         </div>
         <div class="login-container">
             <form class="login-content">
@@ -15,6 +15,9 @@
                 <input name="repeat-password" type="password" placeholder="repeat password">
                 <input name="email" type="text" placeholder="email@email.com">
                 <button>SIGN UP</button>
+                <p>
+                        Already have an account? <a href="login.php">Login here</a>  
+                </p>
             </form>
         </div>
     </div>

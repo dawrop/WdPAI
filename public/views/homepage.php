@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <script src="https://kit.fontawesome.com/0e33b4f811.js" crossorigin="anonymous"></script>
     <title>MAIN PAGE</title>
 </head>
@@ -9,7 +9,7 @@
     <div class="base-container">
         <nav>
             <a href="#">
-                <img class="profile-img" src="../img/profileimg.svg">
+                <img class="profile-img" src="public/img/profileimg.svg">
             </a>
             
             <ul>
@@ -38,50 +38,50 @@
         <main>
             <header>
                 <div class="logo-homepage">
-                    <img src="../img/logo.svg">
+                    <img src="public/img/logo.svg">
                 </div>
             </header>
             <section class="content">
                 <a>Recommended</a>
                 <section class="book-section">
                     <div class="book">
-                        <img src="../img/uploads/1.jpg">
+                        <img src="public/img/uploads/1.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/2.jpg">
+                        <img src="public/img/uploads/2.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/3.jpg">
+                        <img src="public/img/uploads/3.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/4.jpg">
+                        <img src="public/img/uploads/4.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/5.jpg">
+                        <img src="public/img/uploads/5.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/6.jpg">
+                        <img src="public/img/uploads/6.jpg">
                     </div>
                 </section>
                 <a>Popular</a>
                 <section class="book-section">
                     <div class="book">
-                        <img src="../img/uploads/lotr.jpg">
+                        <img src="public/img/uploads/lotr.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/hp1.jpg">
+                        <img src="public/img/uploads/hp1.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/got2.jpg">
+                        <img src="public/img/uploads/got2.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/got1.jpg">
+                        <img src="public/img/uploads/got1.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/hp2.jpg">
+                        <img src="public/img/uploads/hp2.jpg">
                     </div>
                     <div class="book">
-                        <img src="../img/uploads/got3.jpg">
+                        <img src="public/img/uploads/got3.jpg">
                     </div>
                 </section>
             </section>
