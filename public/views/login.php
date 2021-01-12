@@ -24,7 +24,7 @@
                     <form action='login' method='POST'>
                         <button type="submit">SIGN IN</button>
                     </form>
-                    <form action='signup' method='POST'>
+                    <form action='signup' method='GET'>
                         <button>SIGN UP</button>
                     </form>
                     

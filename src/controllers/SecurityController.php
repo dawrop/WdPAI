@@ -5,17 +5,24 @@ require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../models/User.php';
 
 class SecurityController extends AppController {
-    public function login() {
-        $userRepository = new UserRepository();
+    private UserRepository $userRepository;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->userRepository = new UserRepository();
+    }
+
+    public function login() {
         if (!$this->isPost()) {
             return $this->render('login');
         }
 
         $login = $_POST['login'];
         $password = $_POST['password'];
+        $passwordHash = md5($password);
 
-        $user = $userRepository->getUser($login);
+        $user = $this->userRepository->getUser($login);
 
         if (!$user) {
             return $this->render('login', ['messages' => ['User does not exist!']]);
@@ -25,12 +32,32 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['User with this login does not exist!']]);
         }
 
-        if($user->getPassword() !== $password) {
+        if($user->getPassword() !== $passwordHash) {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
         return  $this->render('homepage');
 //        $url = "http://$_SERVER[HTTP_HOST]";
 //        header("Lociation: {$url}/homepage");
+    }
+
+    public function signup() {
+        if (!$this->isPost()) {
+            return $this->render('signup');
+        }
+
+        $login = $_POST['login'];
+        $password = $_POST['password'];
+        $repeatPassword = $_POST['repeatPassword'];
+        $email = $_POST['email'];
+
+        if ($password !== $repeatPassword) {
+            return $this->render('signup', ['messages' => ['Please provide proper password']]);
+        }
+
+        $user = new User($login, md5($password), $email);
+        $this->userRepository->addUser($user);
+
+        return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
     }
 }
