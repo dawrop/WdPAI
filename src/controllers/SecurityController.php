@@ -22,7 +22,7 @@ class SecurityController extends AppController {
         $password = $_POST['password'];
         $passwordHash = md5($password);
 
-        $user = $this->userRepository->getUser($login);
+        $user = $this->userRepository->getUserByLogin($login);
 
         if (!$user) {
             return $this->render('login', ['messages' => ['User does not exist!']]);
@@ -53,6 +53,14 @@ class SecurityController extends AppController {
 
         if ($password !== $repeatPassword) {
             return $this->render('signup', ['messages' => ['Please provide proper password']]);
+        }
+
+        if ($this->userRepository->getUserByLogin($login) !== null) {
+            return $this->render('signup', ['messages' => ['Login is already taken!']]);
+        }
+
+        if ($this->userRepository->getUserByEmail($email) !== null) {
+            return $this->render('signup', ['messages' => ['Email is already in use!']]);
         }
 
         $user = new User($login, md5($password), $email);
