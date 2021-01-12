@@ -9,7 +9,7 @@
             <img src="public/img/logo.svg">
         </div>
         <div class="login-container">
-            <form class="login-content" action="login" method="POST">
+            <form class="login-content" action='login' method='POST'>
                 <div class="messages">
                     <?php if(isset($messages)) {
                         foreach ($messages as $message) {
@@ -21,8 +21,12 @@
                 <input name="login" type="text" placeholder="Login">
                 <input name="password" type="password" placeholder="Password">
                 <div class="form-btn">
-                    <button type="submit">SIGN IN</button>
-                    <button>SIGN UP</button>
+                    <form action='login' method='POST'>
+                        <button type="submit">SIGN IN</button>
+                    </form>
+                    <form action='signup' method='POST'>
+                        <button>SIGN UP</button>
+                    </form>
                     
                 </div>
             </form>

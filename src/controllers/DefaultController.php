@@ -11,7 +11,15 @@ class DefaultController extends AppController {
         $this->render('signup');
     }
 
-    public function books() {
+    public function homepage() {
         $this->render('homepage');
+    }
+
+    public function profile() {
+        $this->render('profile');
+    }
+
+    public function settings() {
+        $this->render('settings');
     }
 }

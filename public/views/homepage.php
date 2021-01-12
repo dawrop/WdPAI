@@ -7,34 +7,8 @@
 
 <body>
     <div class="base-container">
-        <nav>
-            <a href="#">
-                <img class="profile-img" src="public/img/profileimg.svg">
-            </a>
-            
-            <ul>
-                <li>
-                    <button class="btn">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </li>
-                <li>
-                    <button class="btn">
-                        <i class="fas fa-home"></i>
-                    </button>
-                </li>
-                <li>
-                    <button class="btn">
-                        <i class="fas fa-chart-line"></i>
-                    </button>
-                </li>
-                <li>
-                    <button class="btn">
-                        <i class="fas fa-cogs"></i>
-                    </button>
-                </li>
-            </ul>
-        </nav>
+        <?php include 'navigation.php';?>
+        
         <main>
             <header>
                 <div class="logo-homepage">

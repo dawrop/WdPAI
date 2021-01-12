@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <title>LOGIN PAGE</title>
+    <title>SIGN UP PAGE</title>
 </head>
 <body>
     <div class="container">
@@ -16,7 +16,7 @@
                 <input name="email" type="text" placeholder="email@email.com">
                 <button>SIGN UP</button>
                 <p>
-                        Already have an account? <a href="login.php">Login here</a>  
+                    Already have an account? <a href="login">Login here</a>
                 </p>
             </form>
         </div>

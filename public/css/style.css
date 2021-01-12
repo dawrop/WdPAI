@@ -48,6 +48,11 @@ form.login-content {
     border-radius: 11px;
 }
 
+.messages {
+    font-size: large;
+    color: white;
+}
+
 .form-btn {
     display: flex;
     flex-direction: row;
@@ -77,6 +82,11 @@ input {
     width: 50%;
     font-size: 1.5em;
 }
+
+.login-content p {
+    color: white;
+}
+
 /*
 @media only screen and (max-device-width: 420px){
     .container {
@@ -142,9 +152,7 @@ ul {
 .btn:hover {
     color: #777777;
 }
-
-
-
+ 
 main {
     flex: 1;
     display: flex;

@@ -1,11 +1,12 @@
 <?php
 
 require_once 'AppController.php';
+require_once __DIR__.'/../repository/UserRepository.php';
 require_once __DIR__.'/../models/User.php';
 
 class SecurityController extends AppController {
     public function login() {
-        $user = new User('dawid', 'haslo', 'dawid@gmail.com');
+        $userRepository = new UserRepository();
 
         if (!$this->isPost()) {
             return $this->render('login');
@@ -13,6 +14,12 @@ class SecurityController extends AppController {
 
         $login = $_POST['login'];
         $password = $_POST['password'];
+
+        $user = $userRepository->getUser($login);
+
+        if (!$user) {
+            return $this->render('login', ['messages' => ['User does not exist!']]);
+        }
 
         if($user->getLogin() !== $login) {
             return $this->render('login', ['messages' => ['User with this login does not exist!']]);
