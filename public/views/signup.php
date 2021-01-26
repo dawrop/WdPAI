@@ -2,7 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <script type="text/javascript" src="./public/js/script.js" defer></script>
-    <title>SIGN UP PAGE</title>
+    <title>Xbook</title>
 </head>
 <body>
     <div class="container">
@@ -10,7 +10,7 @@
             <img src="public/img/logo.svg">
         </div>
         <div class="login-container">
-            <form class="login-content" action="signup", method="post">
+            <form class="login-content" action="signup" method="post">
                 <div class="messages">
                     <?php
                         if (isset($messages)) {

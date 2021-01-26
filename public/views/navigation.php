@@ -1,36 +1,33 @@
-<!DOCTYPE html>
-
-<body>
-    <nav>
+<div class="nav">
+    <div id="myLinks">
         <a href="profile">
-            <img class="profile-img" src="public/img/profileimg.svg">
+            <i class="fas fa-user-circle"></i>
         </a>
-    
-        <ul>
-            <li>
-            <button class="btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </li>
-            <li>
-                <form action='homepage' method='POST'>
-                    <button class="btn">
-                        <i class="fas fa-home"></i>
-                    </button>
-                </form>
-            </li>
-            <li>
-                <button class="btn">
-                    <i class="fas fa-chart-line"></i>
-                </button>
-            </li>
-            <li>
-                <form action='settings' method='POST'>
-                    <button class="btn">
-                        <i class="fas fa-cogs"></i>
-                    </button>
-                </form>
-            </li>
-        </ul>
-    </nav>
-</body>
+
+        <a>
+            <i class="fas fa-search"></i>
+        </a>
+
+        <a href="homepage">
+            <i class="fas fa-home"></i>
+        </a>
+
+        <a href="#">
+            <i class="fas fa-chart-line"></i>
+        </a>
+
+        <a href="#">
+            <i class="far fa-star"></i>
+        </a>
+        <?php
+        if ($user->getPermission() == 1):
+            ?>
+            <a href="addBook">
+                <i class="fas fa-plus"></i>
+            </a>
+        <?php endif; ?>
+    </div>
+        <div id="logo-nav">
+            <img src="public/img/logo.svg">
+        </div>
+</div>

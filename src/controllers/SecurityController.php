@@ -20,7 +20,7 @@ class SecurityController extends AppController {
 
         $login = $_POST['login'];
         $password = $_POST['password'];
-        $passwordHash = md5($password);
+        $passwordHash = hash('sha512', $password);
 
         $user = $this->userRepository->getUserByLogin($login);
 
@@ -36,9 +36,13 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
-        return  $this->render('homepage');
-//        $url = "http://$_SERVER[HTTP_HOST]";
-//        header("Lociation: {$url}/homepage");
+        $_SESSION['userLogin'] = $user->getLogin();
+        $_SESSION['isUserLogged'] = true;
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/homepage");
+
+
     }
 
     public function signup() {
@@ -63,9 +67,47 @@ class SecurityController extends AppController {
             return $this->render('signup', ['messages' => ['Email is already in use!']]);
         }
 
-        $user = new User($login, md5($password), $email);
+        $user = new User($login, hash('sha512', $password), $email);
         $this->userRepository->addUser($user);
 
         return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);
+    }
+
+    public function logout() {
+        $this->requireLogin();
+        if (!$this->isPost()) {
+            return $this->render('profile');
+        }
+
+        $_SESSION['isUserLogged'] = false;
+        session_unset();
+        session_destroy();
+
+        return $this->render('login', ['messages' => ['You\'ve succesfully logged out!']]);
+    }
+
+    public function changePassword() {
+        $this->requireLogin();
+        if (!$this->isPost()) {
+            return $this->render('profile');
+        }
+
+        $oldPassword = $_POST['oldPassword'];
+        $newPassword = $_POST['newPassword'];
+        $repeatNewPassword = $_POST['repeatNewPassword'];
+
+        $user = $this->userRepository->getUserByLogin($_SESSION['userLogin']);
+
+        if ($newPassword !== $repeatNewPassword) {
+            return $this->render('profile', ['messages' => ['Passwords don\'t match!'], 'user' => $user]);
+        }
+
+        if (hash('sha512', $oldPassword) !== $user->getPassword()) {
+            return $this->render('profile', ['messages' => ['Old password doesn\'t match!'], 'user' => $user]);
+        }
+
+        $this->userRepository->changePassword(hash('sha512', $newPassword));
+
+        return $this->render('profile', ['messages' => ['Password successfully changed!'], 'user' => $user]);
     }
 }

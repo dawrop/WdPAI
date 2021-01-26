@@ -3,6 +3,13 @@
 require_once 'AppController.php';
 
 class DefaultController extends AppController {
+    private UserRepository $userRepository;
+
+    public function __construct() {
+        parent::__construct();
+        $this->userRepository = new UserRepository();
+    }
+
     public function index() {
         $this->render('login');
     }
@@ -11,15 +18,15 @@ class DefaultController extends AppController {
         $this->render('signup');
     }
 
-    public function homepage() {
-        $this->render('homepage');
-    }
-
     public function profile() {
-        $this->render('profile');
+        $this->requireLogin();
+        $user = $this->getLoggedUser();
+        $this->render('profile', ['user' => $user]);
     }
 
-    public function settings() {
-        $this->render('settings');
+    public function favourites() {
+        $this->requireLogin();
+        $user = $user = $this->getLoggedUser();
+        $this->render('favourites', ['user' => $user]);
     }
 }

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
+
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
-    <title>LOGIN PAGE</title>
+    <title>Xbook</title>
 </head>
 <body>
     <div class="container">

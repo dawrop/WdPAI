@@ -17,7 +17,13 @@ class UserRepository extends Repository {
             return null;
         }
 
-        return new User($user['login'], $user['password'], $user['email']);
+        return new User(
+            $user['login'],
+            $user['password'],
+            $user['email'],
+            $user['profile-image'],
+            $user['permission']
+        );
     }
 
     public function getUserByEmail(string $email): ?User {
@@ -33,12 +39,18 @@ class UserRepository extends Repository {
             return null;
         }
 
-        return new User($user['login'], $user['password'], $user['email']);
+        return new User(
+            $user['login'],
+            $user['password'],
+            $user['email'],
+            $user['profile-image'],
+            $user['permission']
+        );
     }
 
     public function addUser(User $user) {
         $stmt = $this->database->connect()->prepare('
-            INSERT INTO public.users (login, password, email)
+            INSERT INTO users (login, password, email)
             VALUES (?, ?, ?)
         ');
 
@@ -47,5 +59,16 @@ class UserRepository extends Repository {
             $user->getPassword(),
             $user->getEmail()
         ]);
+    }
+
+    public function changePassword($newPassword) {
+        $stmt = $this->database->connect()->prepare('
+            UPDATE users SET password = :newPassword WHERE (login = :login)
+        ');
+
+        $stmt->bindValue(':login', $_SESSION['userLogin']);
+        $stmt->bindValue(':newPassword', $newPassword, PDO::PARAM_STR);
+
+        $stmt->execute();
     }
 }

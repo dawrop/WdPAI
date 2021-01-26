@@ -1,4 +1,5 @@
 .vscode
 .idea
-public/uploads/
+public/img/profile-images
+public/img/uploads
 config.php
