@@ -43,7 +43,7 @@ class BookController extends AppController {
         $books = $this->bookRepository->getTrendingBooks();
         $user = $this->getLoggedUser();
 
-        $this->render('favourites', ['books' => $books, 'user' => $user]);
+        $this->render('trending', ['books' => $books, 'user' => $user]);
     }
 
     public function addBook() {

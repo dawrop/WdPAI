@@ -113,7 +113,10 @@ class BookRepository extends Repository {
         $result = [];
 
         $stmt = $this->database->connect()->prepare('
-            SELECT * FROM books INNER JOIN user_fav_books ON books.id = user_fav_books.id_book 
+            SELECT b.id, b.title, b.description, b.genre, b.author, b.image 
+            FROM books b INNER JOIN user_fav_books f ON b.id = f.id_book 
+            GROUP BY b.id, b.title, b.description, b.genre, b.author, b.image
+            ORDER BY count(*) DESC LIMIT 10
         ');
 
         $stmt->execute();
