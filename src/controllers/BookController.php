@@ -28,6 +28,24 @@ class BookController extends AppController {
         $this->render('homepage', ['books' => $books, 'user' => $user]);
     }
 
+    public function favourites() {
+        $this->requireLogin();
+
+        $books = $this->bookRepository->getFavouriteBooks($_SESSION['userId']);
+        $user = $this->getLoggedUser();
+
+        $this->render('favourites', ['books' => $books, 'user' => $user]);
+    }
+
+    public function trending() {
+        $this->requireLogin();
+
+        $books = $this->bookRepository->getTrendingBooks();
+        $user = $this->getLoggedUser();
+
+        $this->render('favourites', ['books' => $books, 'user' => $user]);
+    }
+
     public function addBook() {
         $this->requireLogin();
         $user = $this->getLoggedUser();
@@ -43,7 +61,7 @@ class BookController extends AppController {
                 dirname(__DIR__).self::UPLOAD_DIRECOTRY.$_FILES['file']['name']
             );
 
-            $book = new Book($_POST['title'], $_POST['description'], $_POST['genre'], $_POST['author'], $_FILES['file']['name']);
+            $book = new Book(0, $_POST['title'], $_POST['description'], $_POST['genre'], $_POST['author'], $_FILES['file']['name']);
             $this->bookRepository->addBook($book);
 
 
@@ -67,5 +85,35 @@ class BookController extends AppController {
         }
 
         return true;
+    }
+
+    public function search() {
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+
+        if ($contentType === "application/json") {
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+
+            header('Content-type" application/json');
+            http_response_code(200);
+
+            echo json_encode($this->bookRepository->getBookByTitle($decoded['search']));
+        }
+    }
+
+    public function addBookToFav() {
+        $bookId = $_POST['add'];
+        $this->bookRepository->addBookToFav($bookId);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/homepage");
+    }
+
+    public function removeBookFromFav() {
+        $bookId = $_POST['remove'];
+        $this->bookRepository->removeBookFromFav($bookId);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/favourites");
     }
 }

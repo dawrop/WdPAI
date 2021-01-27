@@ -10,32 +10,29 @@
 <body>
     <div class="base-container">
         <?php require 'navigation.php';?>
-        
+
         <main>
             <header>
                 <div class="logo-homepage">
                     <img src="public/img/logo.svg">
                 </div>
             </header>
-
-            <div class="searchBox" id="searchBox">
-                <input name="search" type="text" placeholder="Search...">
-            </div>
-
             <section class="content">
+
+
                 <?php foreach ($books as $book): ?>
                     <div class="dimness" id="bookInfo<?= $book->getId() ?>" onclick="hideBook('bookInfo<?= $book->getId() ?>')">
                         <div class="bookInfo" >
                             <div class="bookImg">
                                 <img src="public/img/uploads/<?= $book->getImage() ?>">
                             </div>
-                            <form class="bookContent" action="addBookToFav" method="post">
-                                <input name="add" type="hidden" value="<?= $book->getId() ?>">
+                            <form class="bookContent" action="removeBookFromFav" method="post">
+                                <input name="remove" type="hidden" value="<?= $book->getId() ?>">
                                 <a>Title: <?= $book->getTitle() ?></a>
                                 <a>Description: <?= $book->getDescription() ?></a>
                                 <a>Genre: <?= $book->getGenre() ?></a>
                                 <a>Author: <?= $book->getAuthor() ?></a>
-                                <button type="submit">Add to favourites</button>
+                                <button type="submit">Remove from favourites</button>
                             </form>
                         </div>
                     </div>
@@ -44,6 +41,7 @@
                         <img src="public/img/uploads/<?= $book->getImage() ?>">
                     </div>
                 <?php endforeach; ?>
+
             </section>
         </main>
     </div>

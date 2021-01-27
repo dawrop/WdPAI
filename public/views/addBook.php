@@ -2,6 +2,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="public/css/style.css">
     <script src="https://kit.fontawesome.com/0e33b4f811.js" crossorigin="anonymous"></script>
+
     <title>Xbook</title>
 </head>
 

@@ -4,7 +4,7 @@
             <i class="fas fa-user-circle"></i>
         </a>
 
-        <a>
+        <a onclick="showSearchBar()">
             <i class="fas fa-search"></i>
         </a>
 
@@ -12,11 +12,11 @@
             <i class="fas fa-home"></i>
         </a>
 
-        <a href="#">
+        <a href="trending">
             <i class="fas fa-chart-line"></i>
         </a>
 
-        <a href="#">
+        <a href="favourites">
             <i class="far fa-star"></i>
         </a>
         <?php

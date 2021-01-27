@@ -126,7 +126,7 @@ input {
 .nav #myLinks{
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
+    margin-top: 70px;
     align-items: center;
 }
 
@@ -389,5 +389,92 @@ section.book-form {
 
 
 
+.searchBox {
+    position: absolute;
+    top: 7em;
+    left: 4.5em;
+    height: auto;
+    width: 20em;
+    display: none;
 
 
+    background: #00000059 0% 0% no-repeat padding-box;
+    box-shadow: 0px 6px 6px #00000029;
+    border: 1px solid #707070;
+    border-radius: 11px;
+}
+
+.searchBox input {
+    background-color: darkgrey;
+    width: 75%;
+}
+
+.dimness {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+
+    display: none;
+}
+
+.bookInfo {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    height: 45em;
+    width: 65em;
+    background: #d3b300;
+    align-self: center;
+
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+.bookImg {
+    width: 50%;
+
+    display: flex;
+}
+
+.bookImg img {
+    width: 25em;
+    height: 40em;
+
+    align-self: center;
+    margin-left: 3em;
+}
+
+.bookContent {
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 2em;
+}
+
+.bookContent a {
+    font-size: 1.5em;
+    margin: 0.5em;
+}
+
+.bookContent button {
+    background: #00000066 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 7px;
+
+    width: 40%;
+    border: none;
+    color: white;
+    margin: 0.5em;
+    line-height: 2.5em;
+    font-size: 1.25em;
+    align-self: center;
+}

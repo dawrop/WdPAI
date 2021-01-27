@@ -36,6 +36,7 @@ class SecurityController extends AppController {
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
+        $_SESSION['userId'] = $user->getId();
         $_SESSION['userLogin'] = $user->getLogin();
         $_SESSION['isUserLogged'] = true;
 
@@ -67,7 +68,7 @@ class SecurityController extends AppController {
             return $this->render('signup', ['messages' => ['Email is already in use!']]);
         }
 
-        $user = new User($login, hash('sha512', $password), $email);
+        $user = new User(0, $login, hash('sha512', $password), $email);
         $this->userRepository->addUser($user);
 
         return $this->render('login', ['messages' => ['You\'ve been succesfully registrated!']]);

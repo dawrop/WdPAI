@@ -39,10 +39,6 @@ class AppController {
         }
     }
 
-    protected function requirePermission() {
-
-    }
-
     protected function getLoggedUser() {
         return $this->userRepository->getUserByLogin($_SESSION['userLogin']);
     }
